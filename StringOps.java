@@ -135,18 +135,15 @@ public class StringOps {
 		
 		for (int i = 0; i < string.length(); i++) {
 			if (string.charAt(i) == chr) {
+				lng [count] = i;
 				count ++;
-				lng [i] = i;
 			}
 		}
 		
 		int [] result = new int [count];
 	
-		for ( int j = 0; j < lng.length; j++) {
-			if ( lng[j] != 0) {
-				result[loc] = lng[j];
-				loc ++;
-			}
+		for ( int j = 0; j < result.length; j++) {
+			result[j] = lng[j];
 		}
 		
 		return result;
