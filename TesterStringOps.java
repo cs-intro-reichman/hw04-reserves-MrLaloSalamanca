@@ -46,7 +46,8 @@ public class TesterStringOps {
                 "HELLO world",
                 " tWo     wordS",
                 "world",
-                "   Intro to  coMPUter   	sCIEncE   ",
+                "   Intro to  coMPUter    sCIEncE   ",
+				"   Intro to  coMPUter     sCIEncE   ",
                 // Add more test cases as needed
         };
 
@@ -70,7 +71,8 @@ public class TesterStringOps {
                 {2, 3},
                 {4, 7},
                 {5},
-                {0, 1, 2, 3}
+                {0, 1, 2, 3},
+			
         };
     
         int[] result = StringOps.allIndexOf(strings[inputNumber - 1], characters[inputNumber - 1]);

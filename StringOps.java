@@ -26,17 +26,131 @@ public class StringOps {
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+       String newOne ="";
+		for (int i = 0; i< string.length(); i++) {
+			
+			char ch = string.charAt(i);
+			if (ch > 64 && ch < 123) {
+				
+				if ( ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+					ch = (char) (ch - 32);
+					newOne = newOne + ch;
+					
+				} else {
+					
+					if ( ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+						newOne = newOne + ch;
+						
+					} else {
+						
+						if ( ch > 64 && ch < 91) {
+							ch = (char) (ch + 32);
+							newOne = newOne + ch;
+						
+						} else {
+							
+							newOne = newOne + ch;
+						}
+					}
+				}
+				
+			} else {
+				
+				newOne = newOne + ch;
+			}
+		}
+		return newOne;
+											
+		
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
-    }
+       
+		String camelCase ="";
+		int i = 0;
+		
+		while (string.charAt(i) == ' ') {
+			i ++; 
+			}
+		
+			
+		if (string.charAt(i) < 91) {
+			char ch = (char) (string.charAt(i) + 32);
+			camelCase += ch;
+			i++;
+			
+		} else {
+				char ch = string.charAt(i); 
+				camelCase += ch;
+				i++;
+			}
+			
+		
+		while ( i < string.length() ) {
+			
+			if (string.charAt(i) == ' ') {
+				i++;
+				
+			} else {
+				
+				if(string.charAt(i-1) == ' ') {
+				
+					if (string.charAt(i) > 96) {
+						char ch = (char) (string.charAt(i) - 32);
+						camelCase += ch;
+						i++;
+						
+					} else {
+						char ch = string.charAt(i);
+						camelCase += ch;
+						i++;
+					}
+							
+				} else {
+					
+					if (string.charAt(i) < 91) {
+						char ch = (char) (string.charAt(i) + 32);
+						camelCase += ch;
+						i++;
+						
+					} else {
+						
+						char ch = string.charAt(i);
+						camelCase += ch;
+						i++;
+					}
+				}
+			}
+		}
+		return camelCase;
+	}
+					
+
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        
+		int [] lng = new int [string.length()];
+		int count = 0;
+		int loc = 0;
+		
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) == chr) {
+				count ++;
+				lng [i] = i;
+			}
+		}
+		
+		int [] result = new int [count];
+	
+		for ( int j = 0; j < lng.length; j++) {
+			if ( lng[j] != 0) {
+				result[loc] = lng[j];
+				loc ++;
+			}
+		}
+		
+		return result;
+		
     }
+	
 }
